@@ -1,0 +1,125 @@
+-- select * from member1;
+-- insert into member1 value(1,'김갑돌'),(2,'박만득'),(2,'홍길동');
+
+-- create table member2
+-- (
+-- 	mid tinyint primary key,
+--     mname varchar(20)
+-- );
+
+-- insert into member2 value(1,'김갑돌'),(2,'박만득'),(3,'홍길동');
+
+
+-- select * from member2;
+
+-- insert into member2 values(5,'홍삼식');
+
+
+-- create table member4
+-- (
+-- 	mid tinyint primary key,
+--     mname varchar(20) not null,
+--     mcity varchar(20) null
+-- );
+
+-- insert into member4 values
+-- (1,'김갑돌','안양'),
+-- (2,'박만득',null),
+-- (3,'홍길동','과천');
+
+-- select * from member4;
+
+
+-- insert into member4 values(4,null,"서울");
+
+
+-- create table member5
+-- (
+-- 	mid tinyint primary key,
+--     mname varchar(20) unique not null,
+--     mcity varchar(20) null
+-- );
+
+
+
+
+-- insert into member5 values
+-- (1,'김갑돌','안양'),
+-- (2,'박만득',null),
+-- (3,'홍길동','과천');
+
+-- select * from member5;
+
+-- create table hobby
+-- (
+-- 	mid tinyint not null,
+--     hname varchar(20) not null,
+--     foreign key (mid) references member5(mid)
+-- );
+
+
+-- insert into hobby values
+-- (1,'축구'),
+-- (1,'야구'),
+-- (2,'당구');
+
+-- select * from hobby;
+
+-- insert into hobby values(3,"농구");
+
+
+-- create table member6
+-- (
+-- 	mid tinyint primary key,
+--     mname varchar(20) not null,
+--     mcity varchar(20) null,
+--     mpoint int not null default 100
+-- );
+
+-- insert into member6 (mid,mname,mcity)
+-- values(1,'김갑돌','안양'),(2,'박만득',null);
+
+
+-- insert into member6 values
+-- (3,'홍길동','과천',500);
+
+-- select * from member6;
+
+-- create table member7
+-- (
+-- 	mid tinyint primary key auto_increment,
+--     mname varchar(20) not null,
+--     mcity varchar(20) null
+-- );
+
+
+-- insert into member7 (mname,mcity) values
+-- ('김갑돌','안양'),
+-- ('박만득',null),
+-- ('홍길동','과천');
+
+
+-- create table customer
+-- (
+-- 	cid int primary key auto_increment,
+--     cname varchar(20) not null,
+--     caddr varchar(20) not null,
+--     cphone varchar(20) null
+-- );
+
+-- desc customer;
+
+-- alter table customer rename guest;
+-- change column caddr caddr varchar(40) null;
+
+
+-- drop column cemail;
+-- add cemail varchar(40);
+
+show tables;
+
+
+
+
+
+
