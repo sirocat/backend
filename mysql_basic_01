@@ -1,0 +1,93 @@
+-- create database campus
+
+-- create table students
+-- (
+-- 	stno char(6) primary key,
+--     stname varchar(20) not null,
+--     dept varchar(20) not null,
+--     city varchar(20) not null,
+--     year int not null
+--     
+-- )
+
+
+-- create table subjects
+-- (
+-- 	sbno char(6) primary key,
+--     sbname varchar(20) not null,
+--     prof varchar(20) not null,
+--     unit int not null,
+--     room varchar(20) 
+-- )
+
+-- create table registers
+-- (
+-- 	stno char(6) not null,
+--     sbno char(5) not null,
+--     rdate datetime not null,
+--     score int not null,
+--     primary key(stno,sbno),
+--     foreign key (stno) REFERENCES students(stno),
+--     foreign key (sbno) references subjects(sbno)
+-- )
+
+-- INSERT INTO students VALUES 
+-- 	( 'st1201', '이준호', '컴퓨터', '안양', 1 ), 
+-- 	( 'st1202', '김인경', '컴퓨터', '수원', 1 ), 
+--     ( 'st1203', '박춘수', '컴퓨터', '안양', 1 ), 
+--     ( 'st1109', '송진호', '컴퓨터', '과천', 2 ), 
+--     ( 'st1124', '장원준', '컴퓨터', '서울', 2 ), 
+--     ( 'st1210', '지석민', '전자', '서울', 1 ), 
+--     ( 'st1125', '전효숙', '전자', '의왕', 2 ), 
+--     ( 'st1126', '이민주', '전자', '안양', 2 );
+-- 	
+-- INSERT INTO subjects VALUES 
+-- 	( 'cs101', '데이터베이스', '전상렬', 2, 'C501' ), 
+--     ( 'cs102', '자료구조', '안선미', 3, NULL ), 
+--     ( 'cs103', '운영체제', '고영수', 2, 'C308' ), 
+--     ( 'et201', '컴퓨터구조', '김종욱', 3, 'E105' ), 
+--     ( 'et202', '논리회로', '송은주', 3, 'E202' ), 
+--     ( 'et203', '전자기학', '이무산', 2, NULL );
+
+
+-- INSERT INTO registers VALUES 
+-- 	( 'st1201', 'cs102', '2024-08-25', 75 ),
+--     ( 'st1201', 'cs103', '2024-08-25', 95 ), 
+--     ( 'st1203', 'cs102', '2024-08-26', 85 ), 
+--     ( 'st1109', 'cs101', '2024-08-27', 95 ), 
+--     ( 'st1109', 'cs103', '2024-08-27', 90 ), 
+--     ( 'st1124', 'cs101', '2024-08-25', 65 ), 
+--     ( 'st1124', 'et201', '2024-08-25', 70 ), 
+--     ( 'st1125', 'et201', '2024-08-28', 55 ), 
+--     ( 'st1126', 'et202', '2024-09-01', 85 ), 
+--     ( 'st1126', 'cs103', '2024-09-01', 90 );
+
+
+-- select * from students;
+
+-- select sbno,sbname,'학점수+1=',unit + 1 from subjects;
+
+-- select stno,stname from students where year =2;
+
+-- select * from students where city = '서울';
+
+
+-- select * from students where stname like '김%';
+
+-- select * from students where year =1 order by stname; 
+
+-- select unit,sbname from subjects order by unit asc,sbname desc;
+
+-- select * from registers order by score desc limit 1,2;
+
+-- select count(*) from students where dept = '컴퓨터';
+
+-- select count(room) from subjects;
+
+-- select count(distinct dept) from students;
+
+-- select sum(score),avg(score),max(score),min(score) from registers;
+
+
+
+
