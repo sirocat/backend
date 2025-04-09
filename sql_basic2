@@ -1,0 +1,170 @@
+-- create database campus
+
+-- create table students
+-- (
+-- 	stno char(6) primary key,
+--     stname varchar(20) not null,
+--     dept varchar(20) not null,
+--     city varchar(20) not null,
+--     year int not null
+--     
+-- )
+
+
+-- create table subjects
+-- (
+-- 	sbno char(6) primary key,
+--     sbname varchar(20) not null,
+--     prof varchar(20) not null,
+--     unit int not null,
+--     room varchar(20) 
+-- )
+
+-- create table registers
+-- (
+-- 	stno char(6) not null,
+--     sbno char(5) not null,
+--     rdate datetime not null,
+--     score int not null,
+--     primary key(stno,sbno),
+--     foreign key (stno) REFERENCES students(stno),
+--     foreign key (sbno) references subjects(sbno)
+-- )
+
+-- INSERT INTO students VALUES 
+-- 	( 'st1201', '이준호', '컴퓨터', '안양', 1 ), 
+-- 	( 'st1202', '김인경', '컴퓨터', '수원', 1 ), 
+--     ( 'st1203', '박춘수', '컴퓨터', '안양', 1 ), 
+--     ( 'st1109', '송진호', '컴퓨터', '과천', 2 ), 
+--     ( 'st1124', '장원준', '컴퓨터', '서울', 2 ), 
+--     ( 'st1210', '지석민', '전자', '서울', 1 ), 
+--     ( 'st1125', '전효숙', '전자', '의왕', 2 ), 
+--     ( 'st1126', '이민주', '전자', '안양', 2 );
+-- 	
+-- INSERT INTO subjects VALUES 
+-- 	( 'cs101', '데이터베이스', '전상렬', 2, 'C501' ), 
+--     ( 'cs102', '자료구조', '안선미', 3, NULL ), 
+--     ( 'cs103', '운영체제', '고영수', 2, 'C308' ), 
+--     ( 'et201', '컴퓨터구조', '김종욱', 3, 'E105' ), 
+--     ( 'et202', '논리회로', '송은주', 3, 'E202' ), 
+--     ( 'et203', '전자기학', '이무산', 2, NULL );
+
+
+-- INSERT INTO registers VALUES 
+-- 	( 'st1201', 'cs102', '2024-08-25', 75 ),
+--     ( 'st1201', 'cs103', '2024-08-25', 95 ), 
+--     ( 'st1203', 'cs102', '2024-08-26', 85 ), 
+--     ( 'st1109', 'cs101', '2024-08-27', 95 ), 
+--     ( 'st1109', 'cs103', '2024-08-27', 90 ), 
+--     ( 'st1124', 'cs101', '2024-08-25', 65 ), 
+--     ( 'st1124', 'et201', '2024-08-25', 70 ), 
+--     ( 'st1125', 'et201', '2024-08-28', 55 ), 
+--     ( 'st1126', 'et202', '2024-09-01', 85 ), 
+--     ( 'st1126', 'cs103', '2024-09-01', 90 );
+
+
+-- select * from students;
+
+-- select sbno,sbname,'학점수+1=',unit + 1 from subjects;
+
+-- select stno,stname from students where year =2;
+
+-- select * from students where city = '서울';
+
+
+-- select * from students where stname like '김%';
+
+-- select * from students where year =1 order by stname; 
+
+-- select unit,sbname from subjects order by unit asc,sbname desc;
+
+-- select * from registers order by score desc limit 1,2;
+
+-- select count(*) from students where dept = '컴퓨터';
+
+-- select count(room) from subjects;
+
+-- select count(distinct dept) from students;
+
+-- select sum(score),avg(score),max(score),min(score) from registers;
+
+
+-- select stno,stname,reverse(stname) from students;
+
+
+-- select count(*) from students where dept = "전자과";
+
+-- select year,count(*) from students group by year;
+
+
+-- select dept,count(*) from students group by dept order by count(*) desc limit 1;
+
+
+
+
+-- select city,count(*) from students group by city;
+
+-- select city, count(*) from students group by city having count(*) >= 2;
+
+-- select dept,city,count(*) from students group by city,dept;
+
+-- select stno,avg(score) from registers group by stno order by avg(score) desc;
+
+-- select stno,avg(score) from registers group by stno order by avg(score) desc limit 3;
+
+
+-- SELECT s.stno as "학번" , s.stname as "성명", s.dept as "학과", s.city as "주소" FROM students s WHERE s.dept='컴퓨터' AND s.city='안양';
+
+
+-- update students set year =2,dept='전산과' where stno = 'st1201';
+
+-- update students set dept='전산과' where dept = '컴퓨터';
+
+-- update registers set score = score + 5 where sbno = 'cs102';
+
+-- update students set stno = 'st9999' where stno = 'st1201';
+
+-- delete from students where stno = 'st1201'; 
+
+-- select * from students;
+
+
+-- CREATE TABLE seasons ( sbno varchar(10) PRIMARY KEY, sbname varchar(20) NOT NULL, prof varchar(20) NOT NULL, unit int NOT NULL, odate datetime NOT NULL, room varchar(10) );
+
+-- INSERT INTO seasons VALUES	( 'ex901', '컴퓨터활용', '장명수', 3, '2023-12-20', 'C501' ), 
+-- 							( 'ex902', '데이터과학', '최훈', 3, '2023-12-22', 'C505' ),
+-- 							( 'ex903', '전기자동차', '국미선', 3, '2023-12-27', NULL ), 
+-- 							( 'ex904', '세무회계개론', '이주현', 2, '2024-01-10', 'K102' ),
+-- 							( 'ex905', '디지털사진학', '정호식', 2, '2024-01-19', NULL );
+
+-- select * from seasons;
+
+-- SELECT YEAR(CURDATE()),MONTH(CURDATE()), DAY(CURDATE());
+
+
+-- select sbno,sbname,odate from seasons where year(odate)='2024';
+
+-- select sbno,sbname,odate from seasons where month(odate)='12';
+
+
+-- select sbno,sbname,odate,dayname(odate) from seasons where dayofweek(odate) = 4;
+
+-- select datediff('2024-03-15','2024-03-15'),datediff('2024-03-15','2024-03-05'),datediff('2024-03-05','2024-03-15');
+
+-- select date_add(curdate(),interval 60 day),date_add(curdate(),interval 1 month),date_add(curdate(),interval 1 year);
+
+-- select date_sub(curdate(),interval 1 week),date_sub(curdate(),interval 1 month),date_sub(curdate(),interval 1 year);
+
+-- select sbno,sbname,odate, date_sub(odate,interval 1 week) from seasons where prof='최훈';
+
+
+-- SELECT sbname, CURDATE(), odate, DATEDIFF(CURDATE(), odate) FROM seasons WHERE YEAR(odate)='2024';
+
+
+-- SELECT sbname, CURDATE(), odate, date_add(odate,interval 15 day) FROM seasons WHERE YEAR(odate)='2023';
+
+
+
+
+
+
