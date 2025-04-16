@@ -1,92 +1,92 @@
--- 수행 연습
+수행 연습
 
 
 
--- create database library;
+create database library;
 
--- use library;
+use library;
 
--- create table products(
--- 	pid int primary key,
---     pname varchar(50) not null,
---     price int not null default 100,
---     indate datetime not null,
---     starff varchar(20) null
--- );
+create table products(
+	pid int primary key,
+    pname varchar(50) not null,
+    price int not null default 100,
+    indate datetime not null,
+    starff varchar(20) null
+);
 
--- create table orders(
--- 	oid int primary key auto_increment,
---     oname varchar(30) not null,
---     otel varchar(20) not null,
---     pid int not null,
---     odate datetime not null,
---     foreign key(pid) references products(pid)
--- );
+create table orders(
+	oid int primary key auto_increment,
+    oname varchar(30) not null,
+    otel varchar(20) not null,
+    pid int not null,
+    odate datetime not null,
+    foreign key(pid) references products(pid)
+);
 
--- create table book(
--- 	bid int primary key auto_increment,
---     bname varchar(40) not null,
---     bman varchar(20) null,
---     pname varchar(20) not null,
---     price int not null
--- );
-
-
--- insert into book(bid,bname,bman,pname,price) 
--- values  (1,'삼국지','김민수','대림출판',5500),
--- 		(2,'동물농장','남궁영호','초원당',6000),
---         (3,'백중','박춘삼','콩미디어',4500),
---         (4,'변신',null,'대림출판',6000),
---         (5,'대항해시대','초훈','콩미디어',12000);
+create table book(
+	bid int primary key auto_increment,
+    bname varchar(40) not null,
+    bman varchar(20) null,
+    pname varchar(20) not null,
+    price int not null
+);
 
 
--- select * from book;
+insert into book(bid,bname,bman,pname,price) 
+values  (1,'삼국지','김민수','대림출판',5500),
+		(2,'동물농장','남궁영호','초원당',6000),
+        (3,'백중','박춘삼','콩미디어',4500),
+        (4,'변신',null,'대림출판',6000),
+        (5,'대항해시대','초훈','콩미디어',12000);
 
 
--- select pname from book;
+select * from book;
 
--- select distinct pname from book;
 
--- select bid,bname,price * 0.9 from book;
+select pname from book;
 
--- select bid,bname from book where bman = '남궁영호';
+select distinct pname from book;
 
--- select bid,bname from book where pname = '대림출판' and price >= 6000;
+select bid,bname,price * 0.9 from book;
 
--- select bname,pname from book where price between 5000 and 8000;
+select bid,bname from book where bman = '남궁영호';
 
--- select bid,bname,bman from book where bman like '%수';
+select bid,bname from book where pname = '대림출판' and price >= 6000;
 
--- select bid,bname,bman,pname from book where pname like '___';
+select bname,pname from book where price between 5000 and 8000;
 
--- select bname,bman,pname from book where bman is null;
+select bid,bname,bman from book where bman like '%수';
 
--- select bname,bman,pname from book where bman is not null;
+select bid,bname,bman,pname from book where pname like '___';
 
--- select * from book order by bname; -- 내림차순 desc
+select bname,bman,pname from book where bman is null;
 
--- select * from book order by price desc ,bname asc;
+select bname,bman,pname from book where bman is not null;
 
--- select count(bid) from book;
+select * from book order by bname; -- 내림차순 desc
 
--- select count(bman) from book where bname is not null;
+select * from book order by price desc ,bname asc;
 
--- select count(distinct pname) from book;
+select count(bid) from book;
 
--- select avg(price),max(price),min(price) from book;
+select count(bman) from book where bname is not null;
 
--- select pname,count(*) from book group by pname;
+select count(distinct pname) from book;
 
--- select pname,avg(price) from book group by pname;
+select avg(price),max(price),min(price) from book;
 
--- select pname,count(*) from book group by pname having count(pname) >= 2;
+select pname,count(*) from book group by pname;
 
--- select pname,count(*) from book group by pname limit 1;
+select pname,avg(price) from book group by pname;
 
--- update book set bman = '조영수' where bid = 2;
+select pname,count(*) from book group by pname having count(pname) >= 2;
 
--- delete from book where bid = 2;
+select pname,count(*) from book group by pname limit 1;
 
--- delete from book;
+update book set bman = '조영수' where bid = 2;
 
--- select * from book;
+delete from book where bid = 2;
+
+delete from book;
+
+select * from book;
