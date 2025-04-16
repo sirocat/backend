@@ -67,7 +67,7 @@ select * from book order by bname; -- 내림차순 desc
 
 select * from book order by price desc ,bname asc;
 
-select count(bid) from book;
+select count(*) from book;
 
 select count(bman) from book where bname is not null;
 
