@@ -1,0 +1,92 @@
+-- create database enterprise;
+-- use enterprise;
+
+-- create table staff(
+-- 	sid varchar(20) primary key,
+--     sname varchar(20) not null,
+--     sdept varchar(20) null,
+-- 	sdate date not null,
+--     stel varchar(20) not null,
+--     hnum int not null
+-- );
+
+-- desc staff;
+
+-- show tables;
+
+-- INSERT INTO staff (sid, sname, sdept, sdate, stel, hnum)
+-- VALUES
+--     ('cs101','조문정','개발부','2006-03-01','010-3344-1548',18),
+--     ('cs102','김정식','개발부','2006-03-01','010-5344-6987',20),
+--     ('dk201','윤민수','총무부','2008-11-13','010-4653-1479',16),
+--     ('dk204','박충식','총무부','2009-02-14','010-5774-3704',14),
+--     ('dk203','이진규', NULL, '2021-02-16','010-6452-3785',7),
+--     ('sn208','한미주','경리부','2010-02-19','010-5123-1981',11),
+--     ('sn303','나영식','비서실','2012-03-14','010-6445-2738',13);
+
+
+-- select * from staff;
+
+
+-- create view d_staff(sid,sname,sdept,sdate,stel,hnum)
+-- as select sid,sname,sdept,sdate,stel,hnum
+-- 	from staff
+--     where sdept='개발부';
+
+-- select * from d_staff;
+
+
+-- create view j_staff(sid,sname,sdept,sdate,stel,hnum)
+-- as select sid,sname,sdept,sdate,stel,hnum
+-- 	from staff
+--     where hnum < 15;
+
+-- select * from j_staff;
+
+
+-- show tables;
+
+
+-- create view dk_staff(sid,sname,stel)
+-- as select sid,sname,stel
+-- 	from staff
+--     where sid like 'dk%';
+
+-- select * from dk_staff;
+
+
+-- CREATE VIEW dsum_staff AS
+-- SELECT sdept, SUM(hnum) AS dsum
+-- FROM staff
+-- GROUP BY sdept;
+
+-- select * from dsum_staff;
+
+
+-- create view hd_staff as select * from d_staff where hnum >= 20;
+
+-- select * from hd_staff;
+
+
+-- create view u_staff as select * from staff where sdept is null;
+
+-- select * from u_staff;
+
+
+-- insert into u_staff(sid,sname,sdept,sdate,stel,hnum)
+-- value('dk301','박수영',null,'2021-05-05','010-8899-7458',1);
+
+-- select * from u_staff;
+
+-- drop view u_staff;
+
+-- show tables;
+
+show create view dk_staff;
+
+
+
+
+
+
+
